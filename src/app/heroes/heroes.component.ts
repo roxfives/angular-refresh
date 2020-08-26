@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
+import { MessageService } from '../message.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class HeroesComponent
   selectedHero: Hero;
 
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService,
+    public messageService: MessageService
   ) { }
 
 
@@ -29,9 +31,5 @@ export class HeroesComponent
       .subscribe(heroes => {
         this.heroes = heroes;
       });
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
   }
 }
